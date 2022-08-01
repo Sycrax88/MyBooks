@@ -3,23 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_list">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.colosoft.mybooks.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_list"
+        android:name="com.colosoft.mybooks.ui.list.ListFragment"
+        android:label="@string/list"
+        tools:layout="@layout/fragment_list" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.colosoft.mybooks.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_search"
+        android:name="com.colosoft.mybooks.ui.search.SearchFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.colosoft.mybooks.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_update"
+        android:name="com.colosoft.mybooks.ui.update.UpdateFragment"
+        android:label="@string/update"
+        tools:layout="@layout/fragment_update" />
+    <fragment
+        android:id="@+id/navigation_delete"
+        android:name="com.colosoft.mybooks.ui.delete.DeleteFragment"
+        android:label="@string/delete"
+        tools:layout="@layout/fragment_delete" />
 </navigation>
