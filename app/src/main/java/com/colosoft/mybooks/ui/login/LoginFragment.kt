@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.colosoft.mybooks.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -21,6 +22,13 @@ class LoginFragment : Fragment() {
         loginBinding = FragmentLoginBinding.inflate(inflater, container, false)
         loginviewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
+        loginBinding.loginButton.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationList())
+        }
+
+        loginBinding.signUpTextView.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationSignup())
+        }
         return loginBinding.root
     }
 

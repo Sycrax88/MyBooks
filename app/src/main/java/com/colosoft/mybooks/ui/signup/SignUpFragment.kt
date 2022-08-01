@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.colosoft.mybooks.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
@@ -20,6 +21,10 @@ class SignUpFragment : Fragment() {
     ): View {
         signUpBinding = FragmentSignUpBinding.inflate(inflater, container, false)
         signUpviewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
+
+        signUpBinding.signUpButton.setOnClickListener {
+            findNavController().navigate(SignUpFragmentDirections.actionNavigationSignupToNavigationLogin())
+        }
 
         return signUpBinding.root
     }
