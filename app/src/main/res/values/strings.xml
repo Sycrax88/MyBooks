@@ -7,4 +7,12 @@
     <string name="search">Buscar</string>
     <string name="update">Actualizar</string>
     <string name="delete">Borrar</string>
+    <string name="email">Correo Electronico</string>
+    <string name="password">Contraseña</string>
+    <string name="button_text">Iniciar Sesion</string>
+    <string name="sign_up"><u>Regístrate</u></string>
+    <string name="name">Nombre</string>
+    <string name="phone">Teléfono</string>
+    <string name="rep_password">Repetir Contraseña</string>
+    <string name="register">Registrar</string>
 </resources>
