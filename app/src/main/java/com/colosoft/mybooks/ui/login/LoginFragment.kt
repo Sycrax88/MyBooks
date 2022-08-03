@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -22,14 +23,33 @@ class LoginFragment : Fragment() {
         loginBinding = FragmentLoginBinding.inflate(inflater, container, false)
         loginviewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
-        loginBinding.loginButton.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationList())
+        loginviewModel.errorMsg.observe(viewLifecycleOwner){ msg ->
+            showErrorMessage(msg)
+        }
+        loginviewModel.loginSuccess.observe(viewLifecycleOwner){
+            goToList()
         }
 
-        loginBinding.signUpTextView.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationSignup())
+        with(loginBinding){
+            loginButton.setOnClickListener {
+                loginviewModel.validateFields(emailEditText.text.toString(),passwordEditText.text.toString())
+        }
+
+            signUpTextView.setOnClickListener {
+                findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationSignup())
+            }
+
         }
         return loginBinding.root
+    }
+
+    private fun showErrorMessage(msg: String?) {
+        Toast.makeText(requireActivity(), msg, Toast.LENGTH_LONG).show()
+    }
+
+    fun goToList(){
+        findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationSignup())
+
     }
 
     override fun onResume() {
